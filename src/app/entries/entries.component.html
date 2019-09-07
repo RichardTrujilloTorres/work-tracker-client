@@ -1,0 +1,37 @@
+
+<mat-form-field *ngIf="entries.length">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter...">
+</mat-form-field>
+
+<!-- Entries listing -->
+<table *ngIf="entries.length" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Start -->
+    <ng-container matColumnDef="startTime">
+        <th mat-header-cell *matHeaderCellDef> Start </th>
+        <td mat-cell *matCellDef="let element"> {{element.startTime | date:format}} </td>
+    </ng-container>
+
+    <!-- End -->
+    <ng-container matColumnDef="endTime">
+        <th mat-header-cell *matHeaderCellDef> End </th>
+        <td mat-cell *matCellDef="let element"> {{element.endTime | date:format}} </td>
+    </ng-container>
+
+    <!-- End -->
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <!-- Commits -->
+    <ng-container matColumnDef="commits">
+        <th mat-header-cell *matHeaderCellDef> Commits </th>
+        <td mat-cell *matCellDef="let element"> {{element.commits.length}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="entriesFields"></tr>
+    <tr mat-row *matRowDef="let row; columns: entriesFields;"></tr>
+</table>
+
+<span>Total: {{ entries.length }}</span>
