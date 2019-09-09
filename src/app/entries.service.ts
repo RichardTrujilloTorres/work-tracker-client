@@ -17,11 +17,20 @@ export class EntriesService {
 
     getEntries() {
         return this.http.get<EntryResponseData>(this.entriesUrl)
-        // return this.http.get(EntriesData)
     }
-  /*
-  getEntries(): Observable<Entry[]> {
-      return this.http.get(this.entriesUrl)
-  }
-  */
+
+    async getEntry(id) {
+        let entry;
+
+        const entries  = await this.http.get(this.entriesUrl);
+
+        await entries.toPromise()
+            .then((data: EntryResponseData) => {
+                const result = data.data.entries.filter(single => single.id == id);
+
+                entry = result[0];
+            });
+
+        return entry;
+    }
 }
