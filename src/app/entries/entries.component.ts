@@ -17,23 +17,23 @@ import {MatTableDataSource} from '@angular/material';
   ]
 })
 export class EntriesComponent implements OnInit {
-  entriesFields = ['startTime', 'endTime', 'description', 'commits'];
+  entriesFields = ['startTime', 'endTime', 'description', 'commits', 'actions'];
   entries: Entry[] = [];
-  dataSource: any
+  dataSource: any;
 
   constructor(private entry: EntriesService) { }
 
   ngOnInit() {
     this.entry.getEntries()
         .subscribe((data: EntryResponseData) => {
-          console.log(data.data.entries)
-          this.entries = data.data.entries
-          this.dataSource = new MatTableDataSource(this.entries)
-        })
+          console.log(data.data.entries);
+          this.entries = data.data.entries;
+          this.dataSource = new MatTableDataSource(this.entries);
+        });
   }
 
   get format() {
-    return 'yyyy.MM.dd'
+    return 'yyyy.MM.dd';
   }
 
   applyFilter(filterValue: string) {
