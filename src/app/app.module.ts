@@ -19,6 +19,7 @@ import { EntriesComponent } from './entries/entries.component';
 import { StoreEntryComponent } from './store-entry/store-entry.component';
 import {HttpClientModule} from '@angular/common/http';
 import { DummyComponent } from './dummy/dummy.component';
+import { EditEntryComponent } from './edit-entry/edit-entry.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DummyComponent } from './dummy/dummy.component';
     HomeComponent,
     EntriesComponent,
     StoreEntryComponent,
-    DummyComponent
+    DummyComponent,
+    EditEntryComponent
   ],
   imports: [
     BrowserModule,
