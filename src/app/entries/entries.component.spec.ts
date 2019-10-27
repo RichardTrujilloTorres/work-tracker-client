@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EntriesComponent } from './entries.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {DateFormatPipe} from '../pipes/date-format/date-format.pipe';
+import {PipesModule} from '../pipes/pipes.module';
 
 describe('EntriesComponent', () => {
   let component: EntriesComponent;
@@ -8,7 +11,10 @@ describe('EntriesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EntriesComponent ]
+      imports: [
+        HttpClientTestingModule,
+      ],
+      declarations: [ EntriesComponent, DateFormatPipe ],
     })
     .compileComponents();
   }));

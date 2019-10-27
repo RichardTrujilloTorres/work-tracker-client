@@ -1,23 +1,6 @@
-<mat-toolbar color="primary">
+<app-navbar></app-navbar>
 
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
 
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-        <button routerLink="/entries" mat-menu-item>
-            <mat-icon>list</mat-icon>
-            <span>List</span>
-        </button>
-        <button routerLink="/entries/create" mat-menu-item>
-            <mat-icon>add</mat-icon>
-            <span>New</span>
-        </button>
-    </mat-menu>
-
-    <!-- This fills the remaining space of the current row -->
-    <span class="example-fill-remaining-space"></span>
-
-    <span> Work Tracker </span>
-</mat-toolbar>
-<router-outlet></router-outlet>
