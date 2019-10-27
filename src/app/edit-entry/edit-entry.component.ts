@@ -24,9 +24,4 @@ export class EditEntryComponent implements OnInit {
             this.entry = data;
         });
   }
-
-  // TODO centralize this!
-  get format() {
-    return 'yyyy.MM.dd';
-  }
 }
