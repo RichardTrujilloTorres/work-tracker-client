@@ -10,13 +10,13 @@ import EntriesData from '../assets/data/entries.json';
 })
 export class EntriesService {
     // entriesUrl = `${config.baseUrl}/${config.entries.uri}`
-    entriesUrl = `../assets/data/entries.json`
+    entriesUrl = `../assets/data/entries.json`;
 
   constructor(private http: HttpClient) {
   }
 
     getEntries() {
-        return this.http.get<EntryResponseData>(this.entriesUrl)
+        return this.http.get<EntryResponseData>(this.entriesUrl);
     }
 
     async getEntry(id) {
@@ -26,7 +26,7 @@ export class EntriesService {
 
         await entries.toPromise()
             .then((data: EntryResponseData) => {
-                const result = data.data.entries.filter(single => single.id == id);
+                const result = data.data.entries.find(single => single.id === id);
 
                 entry = result[0];
             });
