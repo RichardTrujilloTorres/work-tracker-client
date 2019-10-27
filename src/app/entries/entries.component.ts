@@ -9,6 +9,7 @@ import {Entry, EntryResponseData} from '../../common/types';
 })
 export class EntriesComponent implements OnInit {
   entries: Entry[] = [];
+  public loading = false;
 
   constructor(private entry: EntriesService) { }
 
@@ -17,10 +18,21 @@ export class EntriesComponent implements OnInit {
   }
 
   getEntries() {
+    this.loading = true;
     this.entry.getEntries()
         .subscribe((data: EntryResponseData) => {
           console.log(data.data.entries);
           this.entries = data.data.entries;
-        });
+          this.unsetLoadingWithDelay();
+        }, (err => {
+            console.log(err);
+            this.unsetLoadingWithDelay();
+        }));
+  }
+
+  unsetLoadingWithDelay() {
+      setTimeout(() => {
+          this.loading = false;
+      }, 1000);
   }
 }

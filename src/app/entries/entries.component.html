@@ -18,6 +18,8 @@
     </tbody>
 </table>
 
-<div *ngIf="!entries.length" class="alert alert-info" role="alert">
+<div *ngIf="!entries.length && !loading" class="alert alert-info" role="alert">
     No entries yet!
 </div>
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
