@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { EntriesComponent } from './entries.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {DateFormatPipe} from '../pipes/date-format/date-format.pipe';
-import {PipesModule} from '../pipes/pipes.module';
+import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
 
 describe('EntriesComponent', () => {
   let component: EntriesComponent;
@@ -13,6 +13,9 @@ describe('EntriesComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
+        NgxLoadingModule.forRoot({
+          animationType: ngxLoadingAnimationTypes.circle
+        }),
       ],
       declarations: [ EntriesComponent, DateFormatPipe ],
     })
