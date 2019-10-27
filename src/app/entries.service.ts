@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import config from '../assets/config.json';
-import {Observable} from 'rxjs';
 import {Entry, EntryResponseData} from '../common/types';
-import EntriesData from '../assets/data/entries.json';
 
 @Injectable({
   providedIn: 'root'
@@ -26,9 +23,9 @@ export class EntriesService {
 
         await entries.toPromise()
             .then((data: EntryResponseData) => {
-                const result = data.data.entries.find(single => single.id === id);
-
-                entry = result[0];
+                console.log('get entry');
+                console.log(data);
+                entry = data.data.entries.find(single => single.id === id);
             });
 
         return entry;
