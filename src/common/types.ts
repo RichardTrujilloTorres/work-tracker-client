@@ -1,5 +1,3 @@
-import DateTimeFormat = Intl.DateTimeFormat;
-
 export interface ResponseData {
     data: object;
 }
@@ -12,11 +10,20 @@ export interface EntryData {
     entries: Entry[];
 }
 
+export interface Commit {
+    id: number;
+    branch: string;
+    commitsNumber: number;
+    date: Date;
+    entry: number;
+    repository: string;
+}
+
 export interface Entry {
     id: number;
     description: string;
-    startTime: DateTimeFormat;
-    endTime: DateTimeFormat;
-    commits: [];
+    startTime: Date;
+    endTime: Date;
+    commits: Commit[];
 }
 
