@@ -13,6 +13,7 @@ import { EditEntryComponent } from './edit-entry/edit-entry.component';
 import { NavbarComponent } from './components/common/navbar/navbar.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import {PipesModule} from './pipes/pipes.module';
+import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,9 @@ import {PipesModule} from './pipes/pipes.module';
     HttpClientModule,
     BrowserAnimationsModule,
     PipesModule,
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.circle
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
