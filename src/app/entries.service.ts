@@ -1,33 +1,35 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Entry, EntryResponseData} from '../common/types';
+import {EntriesResponseData, Entry, EntryResponseData} from '../common/types';
+import {environment} from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EntriesService {
-    // entriesUrl = `${config.baseUrl}/${config.entries.uri}`
-    entriesUrl = `../assets/data/entries.json`;
+    entriesUrl = `${environment.api.url}/entries`;
+    // entriesUrl = `../assets/data/entries.json`;
 
   constructor(private http: HttpClient) {
   }
 
-    getEntries() {
-        return this.http.get<EntryResponseData>(this.entriesUrl);
+    index() {
+        return this.http.get<EntriesResponseData>(this.entriesUrl);
     }
 
-    async getEntry(id) {
-        let entry;
+    get(id) {
+      return this.http.get<EntryResponseData>(`${this.entriesUrl}/${id}`);
+    }
 
-        const entries  = await this.http.get(this.entriesUrl);
+    store(entry: Entry) {
+      return this.http.post<EntryResponseData>(this.entriesUrl, entry);
+    }
 
-        await entries.toPromise()
-            .then((data: EntryResponseData) => {
-                console.log('get entry');
-                console.log(data);
-                entry = data.data.entries.find(single => single.id === id);
-            });
+    update(id, entry: Entry) {
+      return this.http.put<EntryResponseData>(`${this.entriesUrl}/${id}`, entry);
+    }
 
-        return entry;
+    delete(id) {
+      return this.http.delete<any>(`${this.entriesUrl}/${id}`);
     }
 }

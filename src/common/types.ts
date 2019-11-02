@@ -6,7 +6,15 @@ export interface EntryResponseData {
     data: EntryData;
 }
 
+export interface EntriesResponseData {
+    data: EntriesData;
+}
+
 export interface EntryData {
+    entry: Entry;
+}
+
+export interface EntriesData {
     entries: Entry[];
 }
 

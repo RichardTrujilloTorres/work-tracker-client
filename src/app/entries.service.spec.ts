@@ -1,72 +1,92 @@
-import { TestBed } from '@angular/core/testing';
+import {async, TestBed} from '@angular/core/testing';
 
 import { EntriesService } from './entries.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {HttpClient} from '@angular/common/http';
-import {Entry, EntryResponseData} from '../common/types';
+import {EntriesResponseData, Entry, EntryResponseData} from '../common/types';
 import {asyncData} from '../../testing/async-observable-helpers';
+import {Observable, of} from 'rxjs';
 
 describe('EntriesService', () => {
-  let httpClientSpy: jasmine.SpyObj<HttpClient>;
   let entriesService: EntriesService;
+  let entriesServiceSpy: jasmine.SpyObj<EntriesService>;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
+      providers: [
+          {
+              provide: EntriesService,
+              useValue: entriesServiceSpy
+          }
+      ]
     });
 
-    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    entriesService = new EntriesService(httpClientSpy);
+    // entriesServiceSpy = jasmine.createSpyObj('EntriesService', ['getEntries', 'getEntry']);
+    entriesServiceSpy = jasmine.createSpyObj('EntriesService', ['index', 'get']);
+    entriesService = TestBed.get(EntriesService);
+
+    console.log('------ entries service on before each');
+    console.log(entriesService);
   });
 
   it('should be created', () => {
-    expect(entriesService).toBeTruthy();
+      console.log('------- should be created');
+      console.log(entriesService);
+      expect(entriesService).toBeTruthy();
   });
 
-  it('should return the entries listing (HttpClient called once)', () => {
-    const expectedEntries: Entry[] = [
-      {
-        id: 3,
-        startTime: new Date('2019-08-19T08:37:00+00:00'),
-        endTime: new Date('2019-08-19T10:40:00+00:00'),
-        description: 'Order return resources',
-        commits: [
-          {
-            id: 77,
-            repository: '(private)',
-            branch: 'dev',
-            commitsNumber: 33,
-            date: new Date('2019-08-25T12:15:00+00:00'),
-            entry: 3
-          }
-        ]
-      },
-      {
-        id: 4,
-        startTime: new Date('2019-08-19T08:37:00+00:00'),
-        endTime: new Date('2019-08-19T10:40:00+00:00'),
-        description: 'Work Tracker tests',
-        commits: [
-          {
-            id: 81,
-            repository: 'work-tracker-client',
-            branch: 'develop',
-            commitsNumber: 4,
-            date: new Date('2019-08-25T12:15:00+00:00'),
-            entry: 4
-          }
-        ]
-      }
-    ];
+  it('should return the entries listing (entries service called once)', async(() => {
+        const expectedEntries: Entry[] = [
+            {
+                id: 3,
+                startTime: new Date('2019-08-19T08:37:00+00:00'),
+                endTime: new Date('2019-08-19T10:40:00+00:00'),
+                description: 'Order return resources',
+                commits: [
+                    {
+                        id: 77,
+                        repository: '(private)',
+                        branch: 'dev',
+                        commitsNumber: 33,
+                        date: new Date('2019-08-25T12:15:00+00:00'),
+                        entry: 3
+                    }
+                ]
+            },
+            {
+                id: 4,
+                startTime: new Date('2019-08-19T08:37:00+00:00'),
+                endTime: new Date('2019-08-19T10:40:00+00:00'),
+                description: 'Work Tracker tests',
+                commits: [
+                    {
+                        id: 81,
+                        repository: 'work-tracker-client',
+                        branch: 'develop',
+                        commitsNumber: 4,
+                        date: new Date('2019-08-25T12:15:00+00:00'),
+                        entry: 4
+                    }
+                ]
+            }
+        ];
+        const expectedEntriesResponse: EntriesResponseData = {
+            data: {
+                entries: expectedEntries
+            }
+        };
 
-    httpClientSpy.get.and.returnValue(asyncData(expectedEntries));
+        entriesServiceSpy.index.and.returnValue(of(expectedEntriesResponse));
 
-    entriesService.getEntries()
-        .subscribe((res: EntryResponseData) => {
-          console.log('--- res');
-          console.log(res);
+        entriesService.index()
+          .subscribe((res: EntriesResponseData) => {
+              console.log('--- res');
+              console.log(res);
 
-          expect(res.data.entries).toEqual(expectedEntries);
-        });
+              expect(res.data.entries).toEqual(expectedEntries);
+          });
 
-  });
+        expect(entriesServiceSpy.index.calls.count()).toBe(1, 'called once');
+    }));
 });
