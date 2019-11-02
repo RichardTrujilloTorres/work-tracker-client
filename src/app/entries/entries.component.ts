@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EntriesService} from '../entries.service';
-import {Entry, EntryResponseData} from '../../common/types';
+import {EntriesResponseData, Entry} from '../../common/types';
 
 @Component({
   selector: 'app-entries',
@@ -19,8 +19,8 @@ export class EntriesComponent implements OnInit {
 
   getEntries() {
     this.loading = true;
-    this.entry.getEntries()
-        .subscribe((data: EntryResponseData) => {
+    this.entry.index()
+        .subscribe((data: EntriesResponseData) => {
           console.log(data.data.entries);
           this.entries = data.data.entries;
           this.unsetLoadingWithDelay();
