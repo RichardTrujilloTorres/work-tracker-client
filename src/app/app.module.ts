@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/common/navbar/navbar.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import {PipesModule} from './pipes/pipes.module';
 import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,8 @@ import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
     NgxLoadingModule.forRoot({
       animationType: ngxLoadingAnimationTypes.circle
     }),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

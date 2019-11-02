@@ -1,1 +1,64 @@
-store
+<!-- entry form -->
+<div class="row">
+    <div class="col-md-6">
+        <form
+        [formGroup]="entryForm"
+        (ngSubmit)="onSubmit()"
+        >
+
+            <!-- description -->
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input
+                        formControlName="description"
+                        type="text" class="form-control" id="description" aria-describedby="entryHelp" placeholder="">
+                <small id="entryHelp" class="form-text text-muted">A brief by concise description.</small>
+
+                <div *ngIf="entryForm.get('description').invalid && (entryForm.dirty || entryForm.touched)"
+                      class="alert alert-danger">
+
+                    <div *ngIf="entryForm.get('description').errors.required">
+                        A description is required.
+                    </div>
+                    <div *ngIf="entryForm.get('description').errors.minlength">
+                        The description must be at least 5 characters long.
+                    </div>
+                </div>
+            </div>
+
+            <!-- start time -->
+            <div class="form-group">
+                <label for="startTime">Start </label>
+                <input
+                    formControlName="startTime"
+                    type="date" class="form-control" id="startTime" placeholder="">
+
+                <div *ngIf="entryForm.get('startTime').invalid && (entryForm.dirty || entryForm.touched)"
+                     class="alert alert-danger">
+
+                    <div *ngIf="entryForm.get('startTime').errors.required">
+                        A start time is required.
+                    </div>
+                </div>
+            </div>
+
+            <!-- end time -->
+            <div class="form-group">
+                <label for="endTime">End</label>
+                <input
+                        formControlName="endTime"
+                        type="date" class="form-control" id="endTime" placeholder="">
+
+                <div *ngIf="entryForm.get('endTime').invalid && (entryForm.dirty || entryForm.touched)"
+                     class="alert alert-danger">
+
+                    <div *ngIf="entryForm.get('endTime').errors.required">
+                        An end time is required.
+                    </div>
+                </div>
+            </div>
+
+            <button [disabled]="!entryForm.valid" type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
