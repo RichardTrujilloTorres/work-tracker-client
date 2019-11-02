@@ -14,6 +14,7 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 import {PipesModule} from './pipes/pipes.module';
 import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {DlDateTimeDateModule, DlDateTimePickerModule} from 'angular-bootstrap-datetimepicker';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     }),
     FormsModule,
     ReactiveFormsModule,
+    DlDateTimeDateModule,
+    DlDateTimePickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
