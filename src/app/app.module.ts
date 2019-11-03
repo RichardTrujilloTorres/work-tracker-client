@@ -14,8 +14,8 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 import {PipesModule} from './pipes/pipes.module';
 import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {DlDateTimeDateModule, DlDateTimePickerModule} from 'angular-bootstrap-datetimepicker';
 import {ShowEntryComponent} from './components/show-entry/show-entry.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -39,10 +39,9 @@ import {ShowEntryComponent} from './components/show-entry/show-entry.component';
     }),
     FormsModule,
     ReactiveFormsModule,
-    DlDateTimeDateModule,
-    DlDateTimePickerModule,
+    NgbModule,
   ],
-  providers: [],
+  providers: [FormsModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
