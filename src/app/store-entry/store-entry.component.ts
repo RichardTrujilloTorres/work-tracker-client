@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {NotificationService} from '../services/notifications/notification.service';
+import {EntriesService} from '../entries.service';
+import {EntryResponseData} from '../../common/types';
 
 @Component({
   selector: 'app-store-entry',
@@ -7,16 +10,18 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./store-entry.component.css']
 })
 export class StoreEntryComponent implements OnInit {
-    entryForm: FormGroup;
+  entryForm: FormGroup;
 
-  constructor() { }
+  constructor(
+      private notificationsService: NotificationService,
+      private entriesService: EntriesService
+  ) { }
 
   ngOnInit() {
     this.entryForm = new FormGroup({
       description: new FormControl('', [
           Validators.required,
           Validators.minLength(5),
-          // TODO custom validator
       ]),
       startTime: new FormControl('', [
         Validators.required,
@@ -29,9 +34,17 @@ export class StoreEntryComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('submit');
-    console.log(this.entryForm.value);
     console.log(this.entryForm.getRawValue());
+
+    this.entriesService.store(this.entryForm.value)
+        .subscribe((res: EntryResponseData) => {
+          this.notificationsService.success('Entry successfully created');
+          this.entryForm.reset();
+        },
+        (err: any) => {
+          this.notificationsService.error('Could not create the entry');
+          console.log(err);
+        });
   }
 
 }
