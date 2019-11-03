@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EntriesService} from '../entries.service';
 import {EntriesResponseData, Entry} from '../../common/types';
+import {NotificationService} from '../services/notifications/notification.service';
 
 @Component({
   selector: 'app-entries',
@@ -11,7 +12,10 @@ export class EntriesComponent implements OnInit {
   entries: Entry[] = [];
   public loading = false;
 
-  constructor(private entry: EntriesService) { }
+  constructor(
+      private entry: EntriesService,
+      private notificationsService: NotificationService
+  ) { }
 
   ngOnInit() {
       this.getEntries();
@@ -28,6 +32,23 @@ export class EntriesComponent implements OnInit {
             console.log(err);
             this.unsetLoadingWithDelay();
         }));
+  }
+
+  deleteEntry(entry: Entry) {
+      this.loading = true;
+      this.entry.delete(entry.id)
+          .subscribe((data: any) => {
+              console.log(data);
+
+              this.unsetLoadingWithDelay();
+              this.notificationsService.success('Entry removed');
+              this.getEntries();
+          }, (err => {
+              console.log(err);
+
+              this.unsetLoadingWithDelay();
+              this.notificationsService.error('An error occurred while attempting to remove the notification');
+          }));
   }
 
   unsetLoadingWithDelay() {
