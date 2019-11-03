@@ -29,15 +29,10 @@
             <!-- start time -->
             <div class="form-group">
                 <label for="startTime">Start </label>
-                <dl-date-time-picker
-                        id="startTime"
-                        startView="day"
-                        maxView="year"
-                        minView="minute"
-                        minuteStep="1"
-                        formControlName="startTime"
-                >
-                </dl-date-time-picker>
+                <ngb-timepicker
+                    id="startTime"
+                    formControlName="startTime"
+                ></ngb-timepicker>
 
                 <div *ngIf="entryForm.get('startTime').invalid && (entryForm.dirty || entryForm.touched)"
                      class="alert alert-danger">
@@ -51,15 +46,10 @@
             <!-- end time -->
             <div class="form-group">
                 <label for="endTime">End</label>
-                <dl-date-time-picker
+                <ngb-timepicker
                         id="endTime"
-                        startView="day"
-                        maxView="year"
-                        minView="minute"
-                        minuteStep="1"
                         formControlName="endTime"
-                >
-                </dl-date-time-picker>
+                ></ngb-timepicker>
 
                 <div *ngIf="entryForm.get('endTime').invalid && (entryForm.dirty || entryForm.touched)"
                      class="alert alert-danger">
