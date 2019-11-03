@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   api: {
-    url: 'http://work-tracker.desemax.io/api'
+    url: 'https://work-tracker-api.frb.io/api'
   }
 };
