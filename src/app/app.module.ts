@@ -15,6 +15,7 @@ import {PipesModule} from './pipes/pipes.module';
 import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DlDateTimeDateModule, DlDateTimePickerModule} from 'angular-bootstrap-datetimepicker';
+import {ShowEntryComponent} from './components/show-entry/show-entry.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {DlDateTimeDateModule, DlDateTimePickerModule} from 'angular-bootstrap-da
     EditEntryComponent,
     NavbarComponent,
     DashboardPageComponent,
+    ShowEntryComponent,
   ],
   imports: [
     BrowserModule,

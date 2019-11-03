@@ -4,6 +4,7 @@ import {EntriesComponent} from './entries/entries.component';
 import {StoreEntryComponent} from './store-entry/store-entry.component';
 import {EditEntryComponent} from './edit-entry/edit-entry.component';
 import {DashboardPageComponent} from './pages/dashboard-page/dashboard-page.component';
+import {ShowEntryComponent} from './components/show-entry/show-entry.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'entries/create',
     component: StoreEntryComponent,
+  },
+  {
+    path: 'entries/:id',
+    component: ShowEntryComponent,
   },
   {
     path: 'entries/:id/edit',

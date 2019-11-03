@@ -1,0 +1,22 @@
+<!-- Entry detail -->
+<div *ngIf="entry" class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title"># commits: {{ entry.commits.length }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+            {{ entry.startTime | dateFormat }} - {{ entry.endTime | dateFormat }}
+        </h6>
+        <p class="card-text">{{ entry.description }}</p>
+
+        <h6 class="card-footer">
+            <ul *ngIf="entry.commits.length">
+                <li *ngFor="let commit of entry.commits">
+                    <p>
+                        {{ commit.repository }} - {{ commit.branch }} [{{ commit.date |dateFormat }}]
+                    </p>
+                </li>
+            </ul>
+        </h6>
+    </div>
+</div>
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
