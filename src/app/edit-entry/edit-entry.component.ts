@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Entry} from '../../common/types';
+import {Entry, EntryResponseData} from '../../common/types';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {EntriesService} from '../entries.service';
 
@@ -19,9 +19,9 @@ export class EditEntryComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.entriesService.getEntry(id)
-        .then((data: Entry) => {
-            this.entry = data;
+    this.entriesService.get(id)
+        .subscribe((data: EntryResponseData) => {
+            this.entry = data.data.entry;
         });
   }
 }
