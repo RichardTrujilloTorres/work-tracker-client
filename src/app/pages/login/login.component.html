@@ -1,0 +1,57 @@
+<!-- login -->
+<div class="row">
+    <div class="col-md-6">
+
+        <form
+            [formGroup]="loginForm"
+            (ngSubmit)="onSubmit()"
+        >
+            <!-- email -->
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input
+                    formControlName="email"
+                    type="email" class="form-control"
+                    id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+
+                <div *ngIf="loginForm.get('email').invalid && (loginForm.dirty || loginForm.touched)"
+                     class="alert alert-danger">
+
+                    <div *ngIf="loginForm.get('email').errors.required">
+                        Email required.
+                    </div>
+                </div>
+            </div>
+
+            <!-- password -->
+            <div class="form-group">
+                <label for="passwordInput">Password</label>
+                <input
+                    formControlName="password"
+                    type="password" class="form-control"
+                    id="passwordInput"
+                    placeholder="Password">
+
+                <div *ngIf="loginForm.get('password').invalid && (loginForm.dirty || loginForm.touched)"
+                     class="alert alert-danger">
+
+                    <div *ngIf="loginForm.get('password').errors.required">
+                        Password required.
+                    </div>
+                </div>
+            </div>
+
+            <!-- remember me -->
+            <!--
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+</div>
