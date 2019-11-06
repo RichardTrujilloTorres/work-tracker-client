@@ -17,10 +17,7 @@ export class NavbarComponent implements OnInit {
       private notificationsService: NotificationService,
       private router: Router
   ) {
-    const user = auth.currentUser();
-    if (user) {
-      this.user = user;
-    }
+    auth.user.subscribe(currentUser => this.user = currentUser);
   }
 
   ngOnInit() {
