@@ -10,7 +10,7 @@ import {User} from '../../models/user';
 })
 export class AuthenticationService {
     private userSubject: BehaviorSubject<User>;
-    private user: Observable<User>;
+    public user: Observable<User>;
 
   constructor(private http: HttpClient) {
       this.userSubject = new BehaviorSubject<User>(
