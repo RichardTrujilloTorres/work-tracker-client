@@ -35,6 +35,16 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'entries/:id/commits',
+    component: EntryCommitsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'commits',
+    component: CommitsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },
