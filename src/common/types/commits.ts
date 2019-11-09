@@ -17,7 +17,7 @@ export interface CommitsData {
 export interface Commit {
     id: number;
     branch: string;
-    commitsNumber: number;
+    commitsNumber?: number;
     date: Date;
     entry: number;
     repository: string;
