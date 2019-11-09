@@ -7,6 +7,8 @@ import {DashboardPageComponent} from './pages/dashboard-page/dashboard-page.comp
 import {ShowEntryComponent} from './components/show-entry/show-entry.component';
 import {LoginComponent} from './pages/login/login.component';
 import {AuthGuard} from './services/http/guards/auth.guard';
+import {CommitsComponent} from './pages/commits/commits/commits.component';
+import {EntryCommitsComponent} from './pages/entries/entry-commits/entry-commits.component';
 
 
 const routes: Routes = [
