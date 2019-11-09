@@ -19,6 +19,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ErrorInterceptor} from './services/http/interceptors/error.interceptor';
 import { LoginComponent } from './pages/login/login.component';
 import {JwtInterceptor} from './services/http/interceptors/jwt.interceptor';
+import {CommitsComponent} from './pages/commits/commits/commits.component';
+import { EntryCommitsComponent } from './pages/entries/entry-commits/entry-commits.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import {JwtInterceptor} from './services/http/interceptors/jwt.interceptor';
     DashboardPageComponent,
     ShowEntryComponent,
     LoginComponent,
+    CommitsComponent,
+    EntryCommitsComponent,
   ],
   imports: [
     BrowserModule,
