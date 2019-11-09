@@ -1,3 +1,5 @@
+import {Commit} from './types/commits';
+
 export interface ResponseData {
     data: object;
 }
@@ -16,15 +18,6 @@ export interface EntryData {
 
 export interface EntriesData {
     entries: Entry[];
-}
-
-export interface Commit {
-    id: number;
-    branch: string;
-    commitsNumber: number;
-    date: Date;
-    entry: number;
-    repository: string;
 }
 
 export interface Entry {
