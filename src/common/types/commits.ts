@@ -15,11 +15,12 @@ export interface CommitsData {
 }
 
 export interface Commit {
-    id: number;
+    id?: number;
     branch: string;
     commitsNumber?: number;
     date: Date;
-    entry: number;
+    entry?: number;
     repository: string;
+    sha?: string;
 }
 
