@@ -21,6 +21,8 @@ import { LoginComponent } from './pages/login/login.component';
 import {JwtInterceptor} from './services/http/interceptors/jwt.interceptor';
 import {CommitsComponent} from './pages/commits/commits/commits.component';
 import { EntryCommitsComponent } from './pages/entries/entry-commits/entry-commits.component';
+import { EntryCommitComponent } from './components/entry-commit/entry-commit.component';
+import { EntryCommitModalComponent } from './components/entry-commit-modal/entry-commit-modal.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { EntryCommitsComponent } from './pages/entries/entry-commits/entry-commi
     LoginComponent,
     CommitsComponent,
     EntryCommitsComponent,
+    EntryCommitComponent,
+    EntryCommitModalComponent,
   ],
   imports: [
     BrowserModule,
