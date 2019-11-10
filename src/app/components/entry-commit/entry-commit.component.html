@@ -1,0 +1,45 @@
+<!-- entry-commits association -->
+<div class="row">
+    <div class="col-md-8">
+        <form
+                [formGroup]="entryCommitsForm"
+        >
+            <div class="form-row align-items-center">
+                <div class="col-auto my-1">
+                    <label class="mr-sm-2 sr-only" for="repositorySelect">Repository</label>
+                    <select
+                            formControlName="repository"
+                            id="repositorySelect"
+                            (change)="getBranches($event.target.value)"
+                            class="custom-select mr-sm-2">
+                        <option
+                            *ngFor="let repository of repositories"
+                        >{{ repository.name }}</option>
+                    </select>
+                    <label class="mr-sm-2 sr-only" for="branchSelect">Branch</label>
+                    <select
+                            formControlName="branch"
+                            id="branchSelect"
+                            class="custom-select mr-sm-2">
+                        <option
+                            *ngFor="let branch of branches[entryCommitsForm.get('repository').value]; let i = index"
+                            [selected]="i == 0"
+                        >{{ branch.name }}</option>
+                    </select>
+                </div>
+                <div class="col-auto my-1">
+                    <button (click)="onSearch()" class="btn btn-success">Search</button>
+                    <button (click)="onAdd()" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <p *ngIf="commits.length">{{ commits.length }} commits found.</p>
+    </div>
+</div>
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
