@@ -60,6 +60,23 @@
                 </div>
             </div>
 
+            <!-- commit addition -->
+            <div class="form-group">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#entry-commit-modal">Add commits</button>
+            </div>
+            <app-entry-commit-modal
+                (addCommits)="onAddCommits($event)"
+            ></app-entry-commit-modal>
+
+            <div class="form-group">
+                <ul *ngIf="entryForm.get('commits').value.length">
+                    <li *ngFor="let commit of entryForm.get('commits').value">
+                        {{ commit.sha }}
+                    </li>
+                </ul>
+                <p *ngIf="!entryForm.get('commits').value.length">No commits to be added.</p>
+            </div>
+
             <button [disabled]="!entryForm.valid" type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>

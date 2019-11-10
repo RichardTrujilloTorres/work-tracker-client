@@ -4,6 +4,8 @@ import {NotificationService} from '../services/notifications/notification.servic
 import {EntriesService} from '../entries.service';
 import {EntryResponseData} from '../../common/types';
 import {Router} from '@angular/router';
+import {Commit} from '../../common/types/commits';
+import {gitHubToDomainCommit} from '../utils/github-commits/github-to-domain-commit';
 
 @Component({
   selector: 'app-store-entry',
@@ -53,10 +55,18 @@ export class StoreEntryComponent implements OnInit {
         });
   }
 
+  onAddCommits({commits, repository, branch}) {
+    const domainCommits: Commit[] = [];
+    commits.forEach(commit => {
+      domainCommits.push(gitHubToDomainCommit(commit, repository, branch));
+    });
+
+    this.entryForm.controls.commits.setValue(domainCommits);
+  }
+
   unsetLoadingWithDelay() {
     setTimeout(() => {
       this.loading = false;
     }, 1000);
   }
-
 }
