@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {EntriesService} from '../entries.service';
 import {EntriesResponseData, Entry} from '../../common/types';
 import {NotificationService} from '../services/notifications/notification.service';
+import {PaginationService} from '../services/pagination/pagination.service';
 
 @Component({
   selector: 'app-entries',
@@ -11,11 +12,14 @@ import {NotificationService} from '../services/notifications/notification.servic
 export class EntriesComponent implements OnInit {
   entries: Entry[] = [];
   public loading = false;
+  pagination: PaginationService;
 
   constructor(
       private entry: EntriesService,
       private notificationsService: NotificationService
-  ) { }
+  ) {
+      this.pagination = new PaginationService(1, 20);
+  }
 
   ngOnInit() {
       this.getEntries();
@@ -23,11 +27,21 @@ export class EntriesComponent implements OnInit {
 
   getEntries() {
     this.loading = true;
-    this.entry.index()
+    this.entry.index([
+        {
+            key: 'page',
+            value: this.pagination.page as unknown as string,
+        },
+        {
+            key: 'perPage',
+            value: this.pagination.perPage as unknown as string,
+        }
+    ])
         .subscribe((data: EntriesResponseData) => {
           console.log(data.data.entries);
-          this.entries = data.data.entries;
+          this.entries = this.entries.concat(data.data.entries);
           this.unsetLoadingWithDelay();
+          this.pagination.increase();
         }, (err => {
             console.log(err);
             this.unsetLoadingWithDelay();

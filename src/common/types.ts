@@ -28,3 +28,8 @@ export interface Entry {
     commits: Commit[];
 }
 
+export interface Param {
+    key: string;
+    value: string;
+}
+
