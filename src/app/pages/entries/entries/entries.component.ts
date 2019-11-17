@@ -56,13 +56,19 @@ export class EntriesComponent implements OnInit {
 
               this.unsetLoadingWithDelay();
               this.notificationsService.success('Entry removed');
-              this.getEntries();
+              this.reload();
           }, (err => {
               console.log(err);
 
               this.unsetLoadingWithDelay();
               this.notificationsService.error('An error occurred while attempting to remove the notification');
           }));
+  }
+
+  reload() {
+      this.entries = [];
+      this.pagination.page = 1;
+      this.getEntries();
   }
 
   unsetLoadingWithDelay() {
