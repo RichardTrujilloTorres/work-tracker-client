@@ -6,6 +6,10 @@ export const environment = {
   production: false,
   api: {
     url: 'http://localhost:8000/api'
+  },
+  algolia: {
+    id: 'WXU4MDGTSJ',
+    searchKey: '3d0712de48f08ebdad598b294c1aa48a'
   }
 };
 
