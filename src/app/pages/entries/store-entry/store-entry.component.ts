@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {NotificationService} from '../services/notifications/notification.service';
-import {EntriesService} from '../entries.service';
-import {EntryResponseData} from '../../common/types';
 import {Router} from '@angular/router';
-import {Commit} from '../../common/types/commits';
-import {gitHubToDomainCommit} from '../utils/github-commits/github-to-domain-commit';
-import {compose} from '../utils/date/compose';
+import {NotificationService} from '../../../services/notifications/notification.service';
+import {compose} from '../../../utils/date/compose';
+import {gitHubToDomainCommit} from '../../../utils/github-commits/github-to-domain-commit';
+import {Commit} from '../../../../common/types/commits';
+import {EntryResponseData} from '../../../../common/types';
+import {EntriesService} from '../../../entries.service';
 
 @Component({
   selector: 'app-store-entry',

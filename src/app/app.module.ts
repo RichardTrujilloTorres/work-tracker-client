@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { EntriesComponent } from './entries/entries.component';
-import { StoreEntryComponent } from './store-entry/store-entry.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { EditEntryComponent } from './edit-entry/edit-entry.component';
 import { NavbarComponent } from './components/common/navbar/navbar.component';
@@ -24,6 +23,7 @@ import { EntryCommitComponent } from './components/entry-commit/entry-commit.com
 import { EntryCommitModalComponent } from './components/entry-commit-modal/entry-commit-modal.component';
 import { LoaderComponent } from './components/common/loader/loader.component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import {StoreEntryComponent} from './pages/entries/store-entry/store-entry.component';
 
 @NgModule({
   declarations: [
