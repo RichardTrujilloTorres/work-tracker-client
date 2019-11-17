@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
-import { EntriesComponent } from './entries/entries.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NavbarComponent } from './components/common/navbar/navbar.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
@@ -23,6 +22,7 @@ import { LoaderComponent } from './components/common/loader/loader.component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {StoreEntryComponent} from './pages/entries/store-entry/store-entry.component';
 import {ShowEntryComponent} from './pages/entries/show-entry/show-entry.component';
+import {EntriesComponent} from './pages/entries/entries/entries.component';
 
 @NgModule({
   declarations: [
