@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Entry, EntryResponseData} from '../../../../common/types';
 import {EntriesService} from '../../../services/http/entries/entries.service';
+import {NotificationService} from '../../../services/notifications/notification.service';
 
 @Component({
   selector: 'app-show-entry',
@@ -15,7 +16,8 @@ export class ShowEntryComponent implements OnInit {
   constructor(
       private route: ActivatedRoute,
       private router: Router,
-      private entriesService: EntriesService
+      private entriesService: EntriesService,
+      private notificationsService: NotificationService
   ) { }
 
   ngOnInit() {
@@ -27,6 +29,8 @@ export class ShowEntryComponent implements OnInit {
           this.loading = false;
           this.entry = data.data.entry;
         }, (err: any) => {
+            this.loading = false;
+            this.notificationsService.error('Error loading entry');
             console.log(err);
         });
   }
