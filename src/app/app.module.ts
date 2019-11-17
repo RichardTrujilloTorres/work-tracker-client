@@ -23,6 +23,9 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {StoreEntryComponent} from './pages/entries/store-entry/store-entry.component';
 import {ShowEntryComponent} from './pages/entries/show-entry/show-entry.component';
 import {EntriesComponent} from './pages/entries/entries/entries.component';
+import { SearchComponent } from './components/common/search/search.component';
+import {NgAisModule} from 'angular-instantsearch';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,8 @@ import {EntriesComponent} from './pages/entries/entries/entries.component';
     EntryCommitComponent,
     EntryCommitModalComponent,
     LoaderComponent,
+    SearchComponent,
+    SearchPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +57,7 @@ import {EntriesComponent} from './pages/entries/entries/entries.component';
     ReactiveFormsModule,
     NgbModule,
     InfiniteScrollModule,
+    NgAisModule.forRoot(),
   ],
   providers: [
       FormsModule,
