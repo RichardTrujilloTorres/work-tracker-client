@@ -10,6 +10,6 @@ export class DateFormatPipe extends DatePipe implements PipeTransform {
     if (value === undefined || value === null) {
       return null;
     }
-    return super.transform(value, 'yyyy.MM.dd');
+    return super.transform(value, 'yyyy.MM.dd h:mm:ss');
   }
 }
