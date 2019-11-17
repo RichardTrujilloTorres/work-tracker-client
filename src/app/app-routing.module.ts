@@ -8,7 +8,6 @@ import {ShowEntryComponent} from './components/show-entry/show-entry.component';
 import {LoginComponent} from './pages/login/login.component';
 import {AuthGuard} from './services/http/guards/auth.guard';
 import {CommitsComponent} from './pages/commits/commits/commits.component';
-import {EntryCommitsComponent} from './pages/entries/entry-commits/entry-commits.component';
 
 
 const routes: Routes = [
@@ -34,11 +33,6 @@ const routes: Routes = [
   {
     path: 'entries/:id/edit',
     component: EditEntryComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'entries/:id/commits',
-    component: EntryCommitsComponent,
     canActivate: [AuthGuard]
   },
   {
