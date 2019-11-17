@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {EntriesService} from '../../entries.service';
-import {Entry, EntryResponseData} from '../../../common/types';
+import {EntriesService} from '../../../entries.service';
+import {Entry, EntryResponseData} from '../../../../common/types';
 
 @Component({
   selector: 'app-show-entry',

@@ -13,7 +13,6 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 import {PipesModule} from './pipes/pipes.module';
 import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ShowEntryComponent} from './components/show-entry/show-entry.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ErrorInterceptor} from './services/http/interceptors/error.interceptor';
 import { LoginComponent } from './pages/login/login.component';
@@ -24,6 +23,7 @@ import { EntryCommitModalComponent } from './components/entry-commit-modal/entry
 import { LoaderComponent } from './components/common/loader/loader.component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {StoreEntryComponent} from './pages/entries/store-entry/store-entry.component';
+import {ShowEntryComponent} from './pages/entries/show-entry/show-entry.component';
 
 @NgModule({
   declarations: [
