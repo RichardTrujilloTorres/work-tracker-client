@@ -11,11 +11,9 @@ export class LoaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      console.log('loaded');
   }
 
   onScroll() {
-      console.log('scrolled');
       this.scrolled.emit(true);
   }
 }
