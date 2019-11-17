@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {EntriesComponent} from './entries/entries.component';
-import {EditEntryComponent} from './edit-entry/edit-entry.component';
 import {DashboardPageComponent} from './pages/dashboard-page/dashboard-page.component';
 import {LoginComponent} from './pages/login/login.component';
 import {AuthGuard} from './services/http/guards/auth.guard';
@@ -28,11 +27,6 @@ const routes: Routes = [
   {
     path: 'entries/:id',
     component: ShowEntryComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'entries/:id/edit',
-    component: EditEntryComponent,
     canActivate: [AuthGuard]
   },
   {

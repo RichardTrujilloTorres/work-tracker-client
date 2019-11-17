@@ -7,7 +7,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { EntriesComponent } from './entries/entries.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { EditEntryComponent } from './edit-entry/edit-entry.component';
 import { NavbarComponent } from './components/common/navbar/navbar.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import {PipesModule} from './pipes/pipes.module';
@@ -31,7 +30,6 @@ import {ShowEntryComponent} from './pages/entries/show-entry/show-entry.componen
     HomeComponent,
     EntriesComponent,
     StoreEntryComponent,
-    EditEntryComponent,
     NavbarComponent,
     DashboardPageComponent,
     ShowEntryComponent,
