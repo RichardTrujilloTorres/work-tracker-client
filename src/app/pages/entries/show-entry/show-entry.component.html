@@ -11,7 +11,7 @@
             <ul *ngIf="entry.commits.length">
                 <li *ngFor="let commit of entry.commits">
                     <p>
-                        {{ commit.repository }} - {{ commit.branch }} [{{ commit.date |dateFormat }}]
+                        {{ commit.repository }} - {{ commit.branch }} [{{ commit.date.date |dateFormat }}]
                     </p>
                 </li>
             </ul>
