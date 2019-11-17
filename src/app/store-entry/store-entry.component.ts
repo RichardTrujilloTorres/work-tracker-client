@@ -6,6 +6,7 @@ import {EntryResponseData} from '../../common/types';
 import {Router} from '@angular/router';
 import {Commit} from '../../common/types/commits';
 import {gitHubToDomainCommit} from '../utils/github-commits/github-to-domain-commit';
+import {compose} from '../utils/date/compose';
 
 @Component({
   selector: 'app-store-entry',
@@ -38,9 +39,10 @@ export class StoreEntryComponent implements OnInit {
     });
   }
 
+
   onSubmit() {
-    console.log(this.entryForm.getRawValue());
-    this.loading = true;
+    this.entryForm.controls.startTime.setValue(compose(this.entryForm.controls.startTime.value));
+    this.entryForm.controls.endTime.setValue(compose(this.entryForm.controls.endTime.value));
 
     this.entriesService.store(this.entryForm.value)
         .subscribe((res: EntryResponseData) => {
