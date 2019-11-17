@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {EntriesComponent} from './entries/entries.component';
 import {DashboardPageComponent} from './pages/dashboard-page/dashboard-page.component';
 import {LoginComponent} from './pages/login/login.component';
 import {AuthGuard} from './services/http/guards/auth.guard';
 import {CommitsComponent} from './pages/commits/commits/commits.component';
 import {StoreEntryComponent} from './pages/entries/store-entry/store-entry.component';
 import {ShowEntryComponent} from './pages/entries/show-entry/show-entry.component';
+import {EntriesComponent} from './pages/entries/entries/entries.component';
 
 
 const routes: Routes = [
