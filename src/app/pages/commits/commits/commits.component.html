@@ -1,0 +1,27 @@
+<!-- commits listing -->
+<div>
+    <table class="table" *ngIf="commits.length">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Repository</th>
+            <th scope="col">Branch</th>
+            <th scope="col">Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let commit of commits">
+            <td>{{ commit.repository }}</td>
+            <td><b>{{ commit.branch }}</b></td>
+            <td>{{ commit.date | dateFormat }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="!commits.length && !loading" class="alert alert-info" role="alert">
+        No commits yet!
+    </div>
+
+    <app-loader (scrolled)="loadCommits()"></app-loader>
+</div>
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
