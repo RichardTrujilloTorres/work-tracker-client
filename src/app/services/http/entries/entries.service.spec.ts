@@ -2,10 +2,8 @@ import {async, TestBed} from '@angular/core/testing';
 
 import { EntriesService } from './entries.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {HttpClient} from '@angular/common/http';
-import {EntriesResponseData, Entry, EntryResponseData} from '../common/types';
-import {asyncData} from '../../testing/async-observable-helpers';
-import {Observable, of} from 'rxjs';
+import {of} from 'rxjs';
+import {EntriesResponseData, Entry} from '../../../../common/types';
 
 describe('EntriesService', () => {
   let entriesService: EntriesService;

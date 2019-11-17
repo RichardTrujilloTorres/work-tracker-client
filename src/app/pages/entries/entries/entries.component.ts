@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PaginationService} from '../../../services/pagination/pagination.service';
 import {NotificationService} from '../../../services/notifications/notification.service';
 import {EntriesResponseData, Entry} from '../../../../common/types';
-import {EntriesService} from '../../../entries.service';
+import {EntriesService} from '../../../services/http/entries/entries.service';
 
 @Component({
   selector: 'app-entries',

@@ -6,7 +6,7 @@ import {compose} from '../../../utils/date/compose';
 import {gitHubToDomainCommit} from '../../../utils/github-commits/github-to-domain-commit';
 import {Commit} from '../../../../common/types/commits';
 import {EntryResponseData} from '../../../../common/types';
-import {EntriesService} from '../../../entries.service';
+import {EntriesService} from '../../../services/http/entries/entries.service';
 
 @Component({
   selector: 'app-store-entry',
