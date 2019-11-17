@@ -18,7 +18,6 @@
             <td>{{ entry.description }}</td>
             <td>
                 <i [routerLink]="['/entries', entry.id]" class="fa fa-eye" aria-hidden="true"></i>
-                <i [routerLink]="['/entries', entry.id, 'edit']" class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 <i (click)="deleteEntry(entry)" class="fa fa-times" aria-hidden="true"></i>
             </td>
         </tr>
