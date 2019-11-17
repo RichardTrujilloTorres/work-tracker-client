@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {EntriesService} from '../entries.service';
-import {EntriesResponseData, Entry} from '../../common/types';
-import {NotificationService} from '../services/notifications/notification.service';
-import {PaginationService} from '../services/pagination/pagination.service';
+import {PaginationService} from '../../../services/pagination/pagination.service';
+import {NotificationService} from '../../../services/notifications/notification.service';
+import {EntriesResponseData, Entry} from '../../../../common/types';
+import {EntriesService} from '../../../entries.service';
 
 @Component({
   selector: 'app-entries',

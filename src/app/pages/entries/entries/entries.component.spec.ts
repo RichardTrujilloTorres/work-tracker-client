@@ -2,8 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EntriesComponent } from './entries.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {DateFormatPipe} from '../pipes/date-format/date-format.pipe';
 import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
+import {DateFormatPipe} from '../../../pipes/date-format/date-format.pipe';
 
 describe('EntriesComponent', () => {
   let component: EntriesComponent;
