@@ -33,3 +33,9 @@ export interface Param {
     value: string;
 }
 
+export interface Time {
+    hour: number;
+    minute: number;
+    second: number;
+}
+
