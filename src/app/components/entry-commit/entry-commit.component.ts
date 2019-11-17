@@ -77,6 +77,9 @@ export class EntryCommitComponent implements OnInit {
         .subscribe((res: any) => {
           this.loading = false;
           this.commits = res.data.commits;
+        }, (err: any) => {
+            this.loading = false;
+            console.log(err);
         });
   }
 
