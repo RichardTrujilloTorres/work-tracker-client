@@ -7,6 +7,7 @@ import {CommitsComponent} from './pages/commits/commits/commits.component';
 import {StoreEntryComponent} from './pages/entries/store-entry/store-entry.component';
 import {ShowEntryComponent} from './pages/entries/show-entry/show-entry.component';
 import {EntriesComponent} from './pages/entries/entries/entries.component';
+import {SearchPageComponent} from './pages/search-page/search-page.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,16 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'search/:query',
+    component: SearchPageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'search',
+    component: SearchPageComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
