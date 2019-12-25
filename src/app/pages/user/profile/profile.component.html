@@ -1,0 +1,15 @@
+<!-- user profile -->
+<div class="row">
+    <div class="col-md-6">
+
+        <div *ngIf="profile" class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Profile</h5>
+                <p class="card-text">
+                    <b>Name: </b> {{ profile.firstname }} <br/>
+                    <b>Last name: </b> {{ profile.lastname }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
