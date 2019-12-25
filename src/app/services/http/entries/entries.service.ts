@@ -23,6 +23,10 @@ export class EntriesService {
       return this.http.get<EntriesResponseData>(`${this.entriesUrl}?${this.params.toString()}`);
     }
 
+    latest() {
+        return this.http.get<EntriesResponseData>(`${this.entriesUrl}/latest`);
+    }
+
     get(id) {
       return this.http.get<EntryResponseData>(`${this.entriesUrl}/${id}`);
     }
