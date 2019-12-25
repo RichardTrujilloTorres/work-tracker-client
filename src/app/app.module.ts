@@ -26,6 +26,7 @@ import {EntriesComponent} from './pages/entries/entries/entries.component';
 import { SearchComponent } from './components/common/search/search.component';
 import {NgAisModule} from 'angular-instantsearch';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
+import {DailyEntriesComponent} from './components/charts/daily-entries/daily-entries.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
     LoaderComponent,
     SearchComponent,
     SearchPageComponent,
+    DailyEntriesComponent,
   ],
   imports: [
     BrowserModule,
