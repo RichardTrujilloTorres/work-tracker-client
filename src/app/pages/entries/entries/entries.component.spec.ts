@@ -3,7 +3,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { EntriesComponent } from './entries.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
-import {DateFormatPipe} from '../../../pipes/date-format/date-format.pipe';
+import {PipesModule} from '../../../pipes/pipes.module';
+import {LoaderComponent} from '../../../components/common/loader/loader.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 describe('EntriesComponent', () => {
   let component: EntriesComponent;
@@ -16,8 +19,11 @@ describe('EntriesComponent', () => {
         NgxLoadingModule.forRoot({
           animationType: ngxLoadingAnimationTypes.circle
         }),
+        InfiniteScrollModule,
+        RouterTestingModule,
+        PipesModule,
       ],
-      declarations: [ EntriesComponent, DateFormatPipe ],
+      declarations: [ EntriesComponent, LoaderComponent ]
     })
     .compileComponents();
   }));

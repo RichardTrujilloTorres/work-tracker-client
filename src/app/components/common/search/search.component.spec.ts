@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchComponent } from './search.component';
-import {RouterModule} from '@angular/router';
+import {NgAisModule} from 'angular-instantsearch';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -10,8 +11,9 @@ describe('SearchComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SearchComponent ],
-      providers: [
-          RouterModule,
+      imports: [
+          RouterTestingModule,
+          NgAisModule.forRoot(),
       ]
     })
     .compileComponents();

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DailyEntriesComponent } from './daily-entries.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('DailyEntriesComponent', () => {
   let component: DailyEntriesComponent;
@@ -8,7 +9,10 @@ describe('DailyEntriesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DailyEntriesComponent ]
+      declarations: [ DailyEntriesComponent ],
+      imports: [
+          HttpClientTestingModule,
+      ]
     })
     .compileComponents();
   }));

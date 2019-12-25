@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardPageComponent } from './dashboard-page.component';
+import {DailyEntriesComponent} from '../../components/charts/daily-entries/daily-entries.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('DashboardPageComponent', () => {
   let component: DashboardPageComponent;
@@ -8,7 +10,8 @@ describe('DashboardPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardPageComponent ]
+      declarations: [ DashboardPageComponent, DailyEntriesComponent ],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   }));
