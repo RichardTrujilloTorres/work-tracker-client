@@ -8,12 +8,14 @@ import {StoreEntryComponent} from './pages/entries/store-entry/store-entry.compo
 import {ShowEntryComponent} from './pages/entries/show-entry/show-entry.component';
 import {EntriesComponent} from './pages/entries/entries/entries.component';
 import {SearchPageComponent} from './pages/search-page/search-page.component';
+import {ProfileComponent} from './pages/user/profile/profile.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: DashboardPageComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'entries',
